@@ -1,168 +1,219 @@
 /* Compile your LESS file! */
-// Is this working?
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
-
-
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
-
-
-
-
-html, body {
-	height: 100%;
-	}
-
-
-//Variables
-@main-bckgrnd:     white;
-@cstm-clr:         gray;
-@font-stack:        'Roboto', Arial, sans-serif;
-
-
-// Mixins
-.bordered() {
-    border-top: dotted 1px black;
-    border-bottom: solid 2px black;
-    padding: 10px 0;
-    margin: 10px 0;
-  }
-
-// .custom-layout(center, center);
-.custom-layout(@justify, @direction) {
-    display: flex;
-    justify-content: @justify;
-    flex-direction: @direction;
-  }
-
+html,
+body {
+  height: 100%;
+}
 .mobile-mixin {
-    background: lightgray;
-    border: 4px solid gray;
-    border-radius: 15px;
+  background: lightgray;
+  border: 4px solid gray;
+  border-radius: 15px;
 }
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body {
-    
-    line-height: 1.25;
-    border: solid black;
+  line-height: 1.25;
+  border: solid black;
 }
-
 .container {
+  max-width: 1200px;
+//   height: 100%;
+  background: #ffffff;
+  color: #808080;
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0 auto;
 
-    // display: flex;
-    max-width: 1200px;
-    height: 100%;
-    background: @main-bckgrnd;
-    color: @cstm-clr;
-    font-family: @font-stack;
-    margin: 0 auto;
-    justify-content: center;
-    border: solid purple;
-
-  @media  (max-width: 700px) {
+  border: solid purple;
+}
+@media (max-width: 700px) {
+  .container {
     background: white;
-  } //max-width
-
- } // .container
-
- .top-content {
-     height: 30%;
-     background: lightgray;
-    .bordered;
-
-    @media  (max-width: 700px) {
-        .mobile-mixin;
-    } //media: max-width: 500px
+  }
 }
-
+.top-content {
+  height: 30%;
+  background: lightgray;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+@media (max-width: 700px) {
+  .top-content {
+    background: lightgray;
+    border: 4px solid gray;
+    border-radius: 15px;
+  }
+}
 .main-content {
-    .custom-layout(flex-start, column)
+  display: flex;
+  justify-content: space-between;
+  flex-direction: flex-end;
 
-}// main content
-
-.column {
+}
+ .column {
+//   border: solid red;
     width: 40%;
-    border: solid red;
 }
-
 header {
-    .custom-layout(space-between, flex-end);
-
-    @media  (max-width: 700px) {
-        flex-direction: column-reverse;
-        .mobile-mixin;
-    } //media: max-width: 500px
+  display: flex;
+  justify-content: space-between;
+  flex-direction: flex-end;
 }
-
+@media (max-width: 700px) {
+  header {
+    flex-direction: column-reverse;
+    background: lightgray;
+    border: 4px solid gray;
+    border-radius: 15px;
+  }
+}
 nav {
-    margin: 10px auto;
+  margin: 10px auto;
 }
-
-h1, h2 {
-    font-size: 30px;
-    margin: 10px auto;
+h1,
+h2 {
+  font-size: 30px;
+  margin: 10px auto;
 }
-
 h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 nav a {
-    margin: 0 10px;
-
-    @media  (max-width: 700px) {
-       font-size: 20px;
-       color: black;
-    } //media: max-width: 500px
+  margin: 0 10px;
 }
-
+@media (max-width: 700px) {
+  nav a {
+    font-size: 20px;
+    color: black;
+  }
+}
 p {
-    margin: 20px auto;
-    
+  margin: 20px auto;
 }

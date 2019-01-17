@@ -143,12 +143,10 @@ body {
 }
 .container {
   max-width: 1200px;
-  height: 100%;
   background: #ffffff;
   color: #808080;
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0 auto;
-  justify-content: center;
   border: solid purple;
 }
 @media (max-width: 700px) {
@@ -173,12 +171,11 @@ body {
 }
 .main-content {
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: flex-end;
 }
 .column {
   width: 40%;
-  border: solid red;
 }
 header {
   display: flex;
